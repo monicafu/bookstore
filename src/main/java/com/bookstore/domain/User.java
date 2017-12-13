@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
@@ -19,7 +20,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.bookstore.domain.security.Authority;
 import com.bookstore.domain.security.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+@Entity
 public class User implements UserDetails, Serializable{
 	private static final long serialVersionUID = 902783495L;
 	
