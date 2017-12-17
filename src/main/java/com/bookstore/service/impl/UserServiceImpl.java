@@ -17,7 +17,7 @@ import com.bookstore.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-	private final static Logger LOG = LoggerFactory.getLogger(UserServiceImpl.class);
+	private final static Logger LOG = LoggerFactory.getLogger(UserService.class);
 	
 	@Autowired
 	UserRepository userRepository;
@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
 			localUser = userRepository.save(user);
 		}
 		
-		return null;
+		return localUser;
 	}
 
 }
