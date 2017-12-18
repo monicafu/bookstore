@@ -1,5 +1,6 @@
 package com.bookstore.config;
 
+import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletRequest;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Order( Ordered.HIGHEST_PRECEDENCE)
-public class RequestFilter {
+public class RequestFilter implements Filter{
 	
 	public void doFilter( ServletRequest req, ServletResponse res, FilterChain chain ){
 		
