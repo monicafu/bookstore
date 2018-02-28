@@ -9,4 +9,12 @@ public interface UserService {
 	
 	User createUser(User user, Set<UserRole> UserRoles);
 	
+	User findByUsername(String username);
+	
+	User findByEmail(String email);
+	
+	User save(User user);
+	
+	User findById(Long id);
+
 }
