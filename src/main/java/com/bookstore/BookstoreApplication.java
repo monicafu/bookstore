@@ -50,7 +50,7 @@ public class BookstoreApplication implements CommandLineRunner {
 		user2.setLastName("Yang");
 		user2.setUsername("yyh");
 		user2.setPassword(SecurityUtility.passwordEncoder().encode("123"));
-		user2.setEmail("yangyuhao830@yahoo.com");
+		user2.setEmail("yangyuhao@yahoo.com");
 		
 		Role role2 = new Role();
 		role2.setRoleId(2);
