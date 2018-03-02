@@ -3,6 +3,7 @@ package com.bookstore.domain;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -42,6 +43,9 @@ public class User implements UserDetails, Serializable{
 	@JsonIgnore()
 	private Set<UserRole> userRoles = new HashSet<>();
 	//private ShoppingCart shoppingCart;
+	@OneToMany ( mappedBy = "user", cascade = CascadeType.ALL)
+	private List<UserPayment> userPaymentList;
+	
 	public Long getId() {
 		return id;
 	}
@@ -113,6 +117,14 @@ public class User implements UserDetails, Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public List<UserPayment> getUserPaymentList() {
+		return userPaymentList;
+	}
+
+	public void setUserPaymentList(List<UserPayment> userPaymentList) {
+		this.userPaymentList = userPaymentList;
 	}
 
 	@Override
