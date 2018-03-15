@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.FetchType;
 import javax.persistence.CascadeType;
 import javax.persistence.Id;
@@ -42,9 +43,16 @@ public class User implements UserDetails, Serializable{
 	@OneToMany ( mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JsonIgnore()
 	private Set<UserRole> userRoles = new HashSet<>();
-	//private ShoppingCart shoppingCart;
-	@OneToMany ( mappedBy = "user", cascade = CascadeType.ALL)
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "user")
 	private List<UserPayment> userPaymentList;
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "user")
+	private List<UserShipping> userShippingList;
+	
+	
+	@OneToOne(cascade=CascadeType.ALL, mappedBy = "user")
+	private ShoppingCart shoppingCart;
 	
 	public Long getId() {
 		return id;
@@ -127,6 +135,21 @@ public class User implements UserDetails, Serializable{
 		this.userPaymentList = userPaymentList;
 	}
 
+	public List<UserShipping> getUserShippingList() {
+		return userShippingList;
+	}
+	public void setUserShippingList(List<UserShipping> userShippingList) {
+		this.userShippingList = userShippingList;
+	}
+	
+	public ShoppingCart getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(ShoppingCart shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Set<GrantedAuthority> authorities = new HashSet<>();
@@ -155,5 +178,5 @@ public class User implements UserDetails, Serializable{
 	public boolean isEnabled() {
 		return enabled;
 	}
-	
+
 }

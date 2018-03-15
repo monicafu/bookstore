@@ -11,7 +11,6 @@ import com.bookstore.service.UserPaymentService;
 public class UserPaymentServiceImpl implements UserPaymentService {
 	@Autowired
 	private UserPaymentRepository userPaymentRepository;
-	
 	public UserPayment findById(Long id) {
 		return userPaymentRepository.findOne(id);
 	}
