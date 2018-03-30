@@ -1,18 +1,23 @@
 package com.bookstore;
 
-import java.util.HashSet;
-import java.util.Set;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.bookstore.config.SecurityUtility;
+import com.bookstore.domain.Order;
 import com.bookstore.domain.User;
-import com.bookstore.domain.security.Role;
-import com.bookstore.domain.security.UserRole;
+import com.bookstore.repository.OrderRepository;
+import com.bookstore.repository.UserRepository;
+import com.bookstore.service.OrderService;
 import com.bookstore.service.UserService;
+
 
 @SpringBootApplication
 public class BookstoreApplication implements CommandLineRunner {
@@ -20,6 +25,23 @@ public class BookstoreApplication implements CommandLineRunner {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	UserRepository userRepository;
+	
+	@Autowired
+	OrderService orderService;
+	
+	@Autowired
+	OrderRepository orderRepository;
+	
+	
+//	@Autowired 
+//	ShoppingCartService shoppingCartService;
+//	
+//	@Autowired
+//	ShoppingCartRepository shoppingCarRepository;
+	
+
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
@@ -27,6 +49,56 @@ public class BookstoreApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... arg0) throws Exception {
+		
+		//add order to user table
+//		User user = userService.findById(8L);
+//		List<Order> listOfOrder = (List<Order>) orderRepository.findAll();
+//		user.setOrderList(listOfOrder);
+//		userRepository.save(user);
+//		System.out.println("user set order success >>> ");
+//		user.getOrderList().forEach(item -> System.out.println(item.getUser().getUsername()));
+		
+//		List<User> users = userRepository.findAll();
+//		for(User one : users){
+//			if(one.getUsername().equals("monica")) {
+//				continue;
+//			}
+//			one.setOrderList(new ArrayList<Order>());
+//			userRepository.save(one);
+//		}
+		
+		
+		
+		//change user email
+//		User jing = userService.findByUsername("fujing");
+//		jing.setEmail("jingfu0815@gmail.com");
+//		userRepository.save(jing);
+//		User monica = userService.findByUsername("monica");
+//		monica.setEmail("fu.jing1@husky.neu.edu");
+//		userRepository.save(monica);
+		
+		//add shopping cart to user 
+//		List<User> listOfUser = userRepository.findAll();
+//		List<ShoppingCart>  listOfShoppingCart = shoppingCarRepository.findAll();
+//		for (User user : listOfUser) {
+//			System.out.println(user.getUsername());
+//			user.setShoppingCart(new ShoppingCart());
+//			userRepository.save(user);
+//			}
+//		for (ShoppingCart cart : listOfShoppingCart) {
+//			if (cart.getId() == 3L) {
+//				for (User user : listOfUser) {
+//					if (user.getId() == 3L) cart.setUser(user);
+//					System.out.println("set user success? "+cart.getUser().getUsername());
+//					shoppingCarRepository.save(cart);
+//					break;
+//				}
+//			break;
+//			}
+//		}
+		
+		
+		//create user 
 //		User user1 = new User();
 //		user1.setFirstName("Jing");
 //		user1.setLastName("Fu");
