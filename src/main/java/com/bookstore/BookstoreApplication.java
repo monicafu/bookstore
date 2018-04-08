@@ -1,23 +1,51 @@
 package com.bookstore;
 
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 import com.bookstore.domain.Order;
 import com.bookstore.domain.User;
+import com.bookstore.domain.security.Role;
 import com.bookstore.repository.OrderRepository;
 import com.bookstore.repository.UserRepository;
 import com.bookstore.service.OrderService;
 import com.bookstore.service.UserService;
+import com.bookstore.domain.security.UserRole;
 
+
+//this version is for outside tomcat (war package)
+//@SpringBootApplication
+//public class BookstoreApplication extends SpringBootServletInitializer {
+//    public static void main(String[] args) {
+//        SpringApplication.run(BookstoreApplication.class, args);
+//        System.out.println(
+//                " ______                    _   ______            \n" +
+//                "|_   _ \\                  / |_|_   _ `.          \n" +
+//                "  | |_) |   .--.    .--. `| |-' | | `. \\  .--.   \n" +
+//                "  |  __'. / .'`\\ \\/ .'`\\ \\| |   | |  | |/ .'`\\ \\ \n" +
+//                " _| |__) || \\__. || \\__. || |, _| |_.' /| \\__. | \n" +
+//                "|_______/  '.__.'  '.__.' \\__/|______.'  '.__.'  ");
+//    }
+//
+//
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+//        // 注意这里要指向原先用main方法执行的Application启动类
+//        return builder.sources(BookstoreApplication.class);
+//    }
+//
+//}
 
 @SpringBootApplication
 public class BookstoreApplication implements CommandLineRunner {
