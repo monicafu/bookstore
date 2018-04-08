@@ -26,41 +26,41 @@ import com.bookstore.domain.security.UserRole;
 
 
 //this version is for outside tomcat (war package)
-//@SpringBootApplication
-//public class BookstoreApplication extends SpringBootServletInitializer {
-//    public static void main(String[] args) {
-//        SpringApplication.run(BookstoreApplication.class, args);
-//        System.out.println(
-//                " ______                    _   ______            \n" +
-//                "|_   _ \\                  / |_|_   _ `.          \n" +
-//                "  | |_) |   .--.    .--. `| |-' | | `. \\  .--.   \n" +
-//                "  |  __'. / .'`\\ \\/ .'`\\ \\| |   | |  | |/ .'`\\ \\ \n" +
-//                " _| |__) || \\__. || \\__. || |, _| |_.' /| \\__. | \n" +
-//                "|_______/  '.__.'  '.__.' \\__/|______.'  '.__.'  ");
-//    }
-//
-//
-//    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-//        // 注意这里要指向原先用main方法执行的Application启动类
-//        return builder.sources(BookstoreApplication.class);
-//    }
-//
-//}
-
 @SpringBootApplication
-public class BookstoreApplication implements CommandLineRunner {
+public class BookstoreApplication extends SpringBootServletInitializer {
+    public static void main(String[] args) {
+        SpringApplication.run(BookstoreApplication.class, args);
+        System.out.println(
+                " ______                    _   ______            \n" +
+                "|_   _ \\                  / |_|_   _ `.          \n" +
+                "  | |_) |   .--.    .--. `| |-' | | `. \\  .--.   \n" +
+                "  |  __'. / .'`\\ \\/ .'`\\ \\| |   | |  | |/ .'`\\ \\ \n" +
+                " _| |__) || \\__. || \\__. || |, _| |_.' /| \\__. | \n" +
+                "|_______/  '.__.'  '.__.' \\__/|______.'  '.__.'  ");
+    }
 
-	@Autowired
-	UserService userService;
-	
-	@Autowired
-	UserRepository userRepository;
-	
-	@Autowired
-	OrderService orderService;
-	
-	@Autowired
-	OrderRepository orderRepository;
+
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        // 注意这里要指向原先用main方法执行的Application启动类
+        return builder.sources(BookstoreApplication.class);
+    }
+
+}
+//下面是本地运行的版本：
+//@SpringBootApplication
+//public class BookstoreApplication implements CommandLineRunner {
+//
+//	@Autowired
+//	UserService userService;
+//	
+//	@Autowired
+//	UserRepository userRepository;
+//	
+//	@Autowired
+//	OrderService orderService;
+//	
+//	@Autowired
+//	OrderRepository orderRepository;
 	
 	
 //	@Autowired 
@@ -70,13 +70,13 @@ public class BookstoreApplication implements CommandLineRunner {
 //	ShoppingCartRepository shoppingCarRepository;
 	
 
-	public static void main(String[] args) {
-		SpringApplication.run(BookstoreApplication.class, args);
-	}
-	//spring security and database access
-
-	@Override
-	public void run(String... arg0) throws Exception {
+//	public static void main(String[] args) {
+//		SpringApplication.run(BookstoreApplication.class, args);
+//	}
+//	//spring security and database access
+//
+//	@Override
+//	public void run(String... arg0) throws Exception {
 		
 		//add order to user table
 //		User user = userService.findById(8L);
@@ -159,6 +159,6 @@ public class BookstoreApplication implements CommandLineRunner {
 //		
 //		userService.createUser(user2, userRoles);
 		
-	}
-	
-}
+//	}
+//	
+//}
