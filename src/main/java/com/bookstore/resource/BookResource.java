@@ -117,4 +117,11 @@ public class BookResource {
 		Book book = bookService.findOne(id);
 		return book;
 	}
+	@RequestMapping(value="/searchBook", method=RequestMethod.POST)
+	public List<Book> searchBook (@RequestBody String keyword) {
+		List<Book> bookList = bookService.blurrySearch(keyword);
+		
+		return bookList;
+	}
+	
 }
